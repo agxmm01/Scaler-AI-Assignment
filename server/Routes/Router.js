@@ -4,7 +4,7 @@ const db = require("../db/conn.js");
 
 // ==================== AUTHENTICATION ROUTES ====================
 const authRoutes = require("./authRoutes.js");
-router.use("/api", authRoutes);
+router.use("/", authRoutes);
 // ==================== CART ROUTES ====================
 const cartRoutes = require("./cartRoutes.js");
 router.use("/cart", cartRoutes);
