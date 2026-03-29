@@ -3,8 +3,9 @@ const router = express.Router();
 const db = require("../db/conn.js");
 
 // ==================== AUTHENTICATION ROUTES ====================
-const authRoutes = require("./authRoutes.js");
-router.use("/", authRoutes);
+const authRoutes = require("../Models/userSchema.js");
+router.use("/api", authRoutes);
+
 // ==================== CART ROUTES ====================
 const cartRoutes = require("./cartRoutes.js");
 router.use("/cart", cartRoutes);
