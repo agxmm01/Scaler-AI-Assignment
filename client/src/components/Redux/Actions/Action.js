@@ -1,6 +1,6 @@
 export const getProducts = () => async (dispatch) => {
   try {
-    const response = await fetch("/api/getProducts");
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/getProducts`);
     const data = await response.json();
 
     dispatch({
