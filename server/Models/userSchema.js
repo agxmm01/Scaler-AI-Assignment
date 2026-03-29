@@ -7,7 +7,7 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 // ==================== REGISTER USER ====================
-router.post("/register", async (req, res) => {
+router.post("/api/auth/register", async (req, res) => {
   try {
     const { name, email, password, phone } = req.body;
 
@@ -73,7 +73,7 @@ router.post("/register", async (req, res) => {
 });
 
 // ==================== LOGIN USER ====================
-router.post("/login", async (req, res) => {
+router.post("/api/auth/login", async (req, res) => {
   try {
     const { email, password } = req.body;
 
