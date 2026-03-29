@@ -4,9 +4,9 @@ import "react-multi-carousel/lib/styles.css";
 import { Divider } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import {products} from './ProductData.js';
 import './Slide.css'
-
+import {Navigate, NavLink} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
@@ -21,7 +21,12 @@ const responsive = {
     items: 1,
   }
 };
-const Slide = ({title}) => {
+
+const sendData = (id) => {
+  Navigate("/",{state:id});
+}
+
+const Slide = ({ title, products = [] }) => { // ✅ default value added
   const carouselRef = useRef();
 
   const handlePrev = () => {
@@ -34,17 +39,17 @@ const Slide = ({title}) => {
 
   return (
     <div className='products_section'>
-        <div className='products_deal'></div>
-        <h3>{title}</h3>
-        <button className='view_btn'>View All</button>
-        <Divider/>
+      <div className='products_deal'></div>
+      <h3>{title}</h3>
+      <button className='view_btn'>View All</button>
+      <Divider/>
 
-        <div className='carousel_wrapper'>
-          <button className='carousel_arrow left_arrow' onClick={handlePrev}>
-            <ArrowBackIosIcon />
-          </button>
+      <div className='carousel_wrapper'>
+        <button className='carousel_arrow left_arrow' onClick={handlePrev}>
+          <ArrowBackIosIcon />
+        </button>
 
-          <Carousel
+        <Carousel
           ref={carouselRef}
           responsive={responsive}
           infinite={true}
@@ -59,30 +64,40 @@ const Slide = ({title}) => {
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"
           containerClass="carousel-container"
-          >
+        >
 
-            {
-                products.map((e) => {
-                    return (
-                        <div className="products_items">
-                            <div className='product_img'>
-                                <img src={e.url} alt="productitem"/>
-                            </div>
-                            <p className='products_name'>{e.title.shortTitle}</p>
-                            <p className='products_offer'>{e.discount}</p>
-                            <p className='products_explore'>{e.tagline}</p>
-                        </div>
-                    )
-                })
-            }
-          </Carousel>
+          {
+            products?.map((e) => {
+              return (
+                <NavLink to={`/getProducts/${e.id}`}>
 
-          <button className='carousel_arrow right_arrow' onClick={handleNext}>
-            <ArrowForwardIosIcon />
-          </button>
-        </div>
+                
+                <div className="products_items" key={e.id}>
+                  <div className='product_img'>
+                    <img src={e.image_url} alt="productitem"/>
+                  </div>
+
+                  <p className='products_name'>{e.name}</p>
+
+                  <p className='products_offer'>
+                    ₹{e.price} <span className="mrp">₹{e.mrp}</span>
+                  </p>
+
+                  <p className='products_explore'>{e.discount}</p>
+                </div>
+                </NavLink>
+              )
+            })
+          }
+
+        </Carousel>
+
+        <button className='carousel_arrow right_arrow' onClick={handleNext}>
+          <ArrowForwardIosIcon />
+        </button>
+      </div>
     </div>
   )
 }
 
-export default Slide
+export default Slide;
