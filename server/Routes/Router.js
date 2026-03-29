@@ -4,7 +4,7 @@ const db = require("../db/conn.js");
 
 // ==================== AUTHENTICATION ROUTES ====================
 const authRoutes = require("../Models/userSchema.js");
-router.use("/auth", authRoutes);
+router.use("", authRoutes);
 
 // ==================== CART ROUTES ====================
 const cartRoutes = require("./cartRoutes.js");
