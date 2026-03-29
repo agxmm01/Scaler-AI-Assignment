@@ -2,6 +2,25 @@ const express = require("express");
 const router = express.Router();
 const db = require("../db/conn.js");
 
+// ==================== AUTHENTICATION ROUTES ====================
+const authRoutes = require("../Models/userSchema.js");
+router.use("/auth", authRoutes);
+
+// ==================== CART ROUTES ====================
+const cartRoutes = require("./cartRoutes.js");
+router.use("/cart", cartRoutes);
+
+// ==================== ORDER ROUTES ====================
+const orderRoutes = require("./orderRoutes.js");
+router.use("/orders", orderRoutes);
+
+// ==================== PRODUCT ROUTES ====================
+const productRoutes = require("./productRoutes.js");
+router.use("/products", productRoutes);
+
+// ==================== LEGACY PRODUCT ROUTES (For Backward Compatibility) ====================
+// These routes map to the new product routes via redirect
+
 /// ✅ FIRST: dynamic route
 router.get("/getProducts/:id", async (req, res) => {
   try {

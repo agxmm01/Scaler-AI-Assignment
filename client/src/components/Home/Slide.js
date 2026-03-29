@@ -38,10 +38,10 @@ const Slide = ({ title, products = [] }) => { // ✅ default value added
   };
 
   return (
-    <div className='products_section'>
-      <div className='products_deal'></div>
+    <div className="products_section">
+      <div className="products_deal"></div>
       <h3>{title}</h3>
-      <button className='view_btn'>View All</button>
+      <button className="view_btn">View All</button>
       <Divider/>
 
       <div className='carousel_wrapper'>
