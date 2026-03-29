@@ -1,6 +1,6 @@
 // API Configuration and helper functions
 
-const API_BASE_URL = "https://scaler-ai-assignment.onrender.com/api";
+const API_BASE_URL = `${process.env.REACT_APP_API_URL}/api`;
 
 // Get the auth token from localStorage
 export const getAuthToken = () => {

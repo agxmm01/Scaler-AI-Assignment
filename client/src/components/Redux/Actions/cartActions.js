@@ -1,6 +1,6 @@
 import { getAuthToken } from "../../../services/api";
 
-const API_BASE_URL = "https://scaler-ai-assignment.onrender.com/api";
+const API_BASE_URL = `${process.env.REACT_APP_API_URL}/api`;
 
 // Action Types
 export const FETCH_CART_REQUEST = "FETCH_CART_REQUEST";
