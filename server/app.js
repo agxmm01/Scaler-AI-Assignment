@@ -13,7 +13,7 @@ const cors = require("cors");
 const router = require("./Routes/Router.js");
 app.use(express.json());
 app.use(cors());
-app.use("/api", router);
+app.use("/", router);
 // Test database connection
 app.get("/api/health", (req, res) => {
     res.json({ message: "Server is running" });
