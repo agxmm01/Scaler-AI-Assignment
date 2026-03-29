@@ -1,6 +1,6 @@
 import { getAuthToken } from "../../../services/api";
 
-const API_BASE_URL = "http://localhost:8001/api";
+const API_BASE_URL = "https://scaler-ai-assignment.onrender.com/api";
 
 // Action Types
 export const FETCH_ORDERS_REQUEST = "FETCH_ORDERS_REQUEST";

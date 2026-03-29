@@ -19,7 +19,7 @@ const Cart = () => {
 
     const getinData = async () => {
         try {
-            const res = await fetch(`http://localhost:8001/api/products/${id}`, {
+            const res = await fetch(`https://scaler-ai-assignment.onrender.com/api/products/${id}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"

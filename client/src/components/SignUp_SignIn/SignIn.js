@@ -34,7 +34,7 @@ const SignIn = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:8001/api/auth/login", {
+      const response = await fetch("https://scaler-ai-assignment.onrender.com/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

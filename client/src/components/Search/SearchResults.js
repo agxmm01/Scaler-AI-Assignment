@@ -23,7 +23,7 @@ const SearchResults = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch('http://localhost:8001/api/products/categories/list');
+        const response = await fetch('https://scaler-ai-assignment.onrender.com/api/products/categories/list');
         const data = await response.json();
         if (data.success) {
           setCategories(data.categories);
@@ -48,7 +48,7 @@ const SearchResults = () => {
       setError(null);
 
       try {
-        let url = `http://localhost:8001/api/products/search?q=${encodeURIComponent(query)}&page=${page}&limit=12`;
+        let url = `https://scaler-ai-assignment.onrender.com/api/products/search?q=${encodeURIComponent(query)}&page=${page}&limit=12`;
         
         if (selectedCategory) {
           url += `&category=${selectedCategory}`;

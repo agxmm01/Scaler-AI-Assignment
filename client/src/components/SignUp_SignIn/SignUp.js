@@ -49,7 +49,7 @@ const SignUp = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:8001/api/auth/register", {
+      const response = await fetch("https://scaler-ai-assignment.onrender.com/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

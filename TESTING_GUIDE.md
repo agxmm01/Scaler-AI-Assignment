@@ -2,7 +2,7 @@
 
 ## Prerequisites
 - ✅ Database initialized with `ecommerce_schema.sql`
-- ✅ Server running on `http://localhost:8001`
+- ✅ Server running on `https://scaler-ai-assignment.onrender.com`
 - ✅ Client running on `http://localhost:3000`
 - ✅ Products exist in database
 
